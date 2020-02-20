@@ -25,7 +25,7 @@ const queries = [
 ];
 
 // Run the queries in parallel
-Promsie.all(queries)
+Promise.all(queries)
   .then(function(results) {
     console.log('Total Registered voters in the 13617: ', results[0].map(p => p.name)); // need to address arrow function
     console.log('All voters with last name of STARR: ', results[1].map(p => p.first));
