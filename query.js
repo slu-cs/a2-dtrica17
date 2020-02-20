@@ -27,7 +27,7 @@ const queries = [
 // Run the queries in parallel
 Promise.all(queries)
   .then(function(results) {
-    console.log('Total Registered voters in the 13617: ', results[0].map(p => p.name)); // need to address arrow function
+    console.log('13617 Total Registered voters: ', results[0].map(p => p.name)); // need to address arrow function
     console.log('All voters with last name of STARR: ', results[1].map(p => p.first));
     console.log('2016 general election voter total: ', results[2].map(p => p.name)); // need to address arrow function
     console.log('The last last name: ', results[3].map(p => p.last));
