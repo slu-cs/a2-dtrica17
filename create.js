@@ -40,7 +40,7 @@ file.on('line', function(line) {
       history: data[0][3]
     });
   }
-  //console.log(voters);
+  console.log(voters);
 });
 
 
