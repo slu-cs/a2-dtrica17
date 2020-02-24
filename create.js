@@ -46,16 +46,15 @@ file.on('line', function(line) {
 });
 
 
-/*
+
 // Ready database
 mongoose.connection.dropDatabase()
-  .then(() => rows.save())
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
 
 
-
+/*
 const rows = csv.split('\n');
 const data = rows.map(d => d.split(','));
 console.log(data);
