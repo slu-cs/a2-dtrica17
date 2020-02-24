@@ -20,16 +20,16 @@ file.on('line', function(line) {
   const rows = line.split('\n');
   const data = rows.map(d => d.split(','));
   //console.log(data);
-  console.log(data[0]);
+  console.log(data[0][0]);
   //for (const row in data){
   //  console.log(row[0][0]);
   //}
   const voters = data.map(row => {
     const new_voter = new Voter({
-      first: row[0][0],
-      last: row[0][1],
-      zip: row[0][2],
-      history: row[0][3]
+      first: data[0][0],
+      last: data[0][1],
+      zip: data[0][2],
+      history: data[0][3]
     });
   });
   //console.log(voters);
