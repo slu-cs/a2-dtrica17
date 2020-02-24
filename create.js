@@ -15,7 +15,7 @@ const file = readline.createInterface({
 });
 
 // holder array
-const new_array = [];
+const voters = [];
 
 // Parse and prepare csv file
 file.on('line', function(line) {
@@ -31,15 +31,15 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     });
-    new_array.push(new_voter);
+    voters.push(new_voter);
     console.log(new_voter);
-    console.log(new_array[0]);
+    console.log(voters[0]);
   }
   //console.log(new_array);
 });
 
 
-for(const voter in new_array){
+for(const voter in voters){
   mongoose.connection.dropDatabase()
     .then(() => voter.save())
     .then(() => mongoose.connection.close())
