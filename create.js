@@ -31,6 +31,7 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     });
+    delete new_voter._id;
     new_array.push(new_voter);
   }
   //console.log(new_array);
@@ -51,6 +52,7 @@ mongoose.connection.dropDatabase()
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
 
+console.log(new_array);
 
 /*
 const rows = csv.split('\n');
