@@ -25,15 +25,15 @@ file.on('line', function(line) {
   const rows = line.split('\n');
   const data = rows.map(d => d.split(','));
   for (const row in data){
-      const voter = new Voter({
+      list.push(new Voter({
       first: data[0][0],
       last: data[0][1],
       zip: data[0][2],
       history: data[0][3]
-    });
+    }));
     // console.log(voter);
     // console.log(list.length);
-    list.push(voter);
+    // list.push(voter);
     // voter.save();
   }
   // console.log(list);
