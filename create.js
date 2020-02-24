@@ -17,7 +17,7 @@ const file = readline.createInterface({
 });
 
 
-// holder array for voters
+// array for all voter objects
 const list = [];
 
 // Parse and prepare csv file
