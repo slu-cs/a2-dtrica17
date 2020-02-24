@@ -31,6 +31,7 @@ file.on('line', function(line) {
     });
   });
   */
+  const new_array = [];
   for (const row in data){
     // console.log(data[0][0]);
     const new_voter = new Voter({
@@ -39,8 +40,9 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     });
+    new_array.push(new_voter);
   }
-  console.log(voters);
+  console.log(new_array);
 });
 
 
