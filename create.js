@@ -33,7 +33,7 @@ file.on('line', function(line) {
     // console.log(voter);
     // console.log(list.length);
     list.push(voter.save());
-    // console.log(voter);
+    console.log(list.length);
   }
   // console.log('done with creation of voters');
 });
