@@ -21,7 +21,7 @@ file.on('line', function(line) {
   const data = rows.map(d => d.split(','));
   // console.log(rows);
   for (const row in data){
-    console.log(row[0][0]);
+    console.log(row[0]);
   }
   const voters = data.map(row => {
     const new_voter = new Voter({
