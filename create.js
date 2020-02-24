@@ -37,7 +37,7 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     list.push(new_voter);
-    console.log(list.length);
+    //console.log(list.length);
     //console.log(voters);
   }
 });
