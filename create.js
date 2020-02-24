@@ -19,7 +19,7 @@ const file = readline.createInterface({
 file.on('line', function(line) {
   const rows = line.split('\n');
   //const data = rows.split(',');
-  console.log(data);
+  console.log(rows);
   const data = rows.map(d => d.split(','));
   const voters = data.map(row => {
     const new_voter = new Voter({
