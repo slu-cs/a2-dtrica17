@@ -22,10 +22,7 @@ const list = [];
 file.on('line', function(line) {
   const rows = line.split('\n');
   const data = rows.map(d => d.split(','));
-  //console.log(data);
-  //console.log(data[0][0]);
   for (const row in data){
-    // console.log(data[0][0]);
     const new_voter = new Voter({
       first: data[0][0],
       last: data[0][1],
@@ -34,7 +31,6 @@ file.on('line', function(line) {
     });
     list.push(new_voter);
     //console.log(list.length);
-    //console.log(voters);
   }
 });
 
