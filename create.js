@@ -35,7 +35,7 @@ file.on('line', function(line) {
   }
 });
 
-console.log(voters);
+console.log(voters[0]);
 
 for(const voter in voters){
   mongoose.connection.dropDatabase()
