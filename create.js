@@ -15,8 +15,8 @@ const file = readline.createInterface({
 });
 
 
-var List = require("collections/list");
-var list = new List([]);
+//var List = require("collections/list");
+var list = [];
 
 
 // holder array
