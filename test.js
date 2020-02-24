@@ -15,10 +15,10 @@ const arr = [];
 file.on('line', function(line){
     var columns = line.split(',');
     var voterguy = new Voter({
-    'firstname': columns[0];
-    'lastname': columns[1];
-    'zipcode': columns[2];
-    'history': columns[3];
+    'firstname': columns[0],
+    'lastname': columns[1],
+    'zipcode': columns[2],
+    'history': columns[3]
   })
   arr.push(voterguy);
 })
