@@ -43,7 +43,6 @@ file.on('close', function() {
     .catch(error => console.log(error.stack));
 });
 
-mongoose.connection.dropDatabase();
 
 
 
