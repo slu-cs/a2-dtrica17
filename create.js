@@ -1,33 +1,33 @@
 // Reads voters.csv and creates the collection
 
+// required databases and files
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
-const fs = require('fs');
-const readline = require('readline');
 
-connect(); // To the database
+// connect to database
+connect();
 
 
 // Read voters.csv
+const fs = require('fs');
+const readline = require('readline');
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
 
 
-// holder array
+// holder array for voters
 const list = [];
 
 // Parse and prepare csv file
 file.on('line', function(line) {
-  const rows = line.split('\n');
-  const data = rows.map(d => d.split(','));
-  for (const row in data){
+  const rows = line.split(',');
       const voter = new Voter({
-      first: data[0][0],
-      last: data[0][1],
-      zip: data[0][2],
-      history: data[0][3]
+      first: rows[0],
+      last: rows[1],
+      zip: rows[2],
+      history: rows[3]
     });
     // console.log(list);
     // console.log(list.length);
