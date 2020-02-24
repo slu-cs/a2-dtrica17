@@ -34,6 +34,6 @@ Promise.all(queries)
     console.log('All voters with first name of STARR: ', results[1].map(p => p.first + " " + p.last));
     console.log('2016 general election voter total: ', results[2]);
     console.log('The last last name: ', results[3][0].last);
-    console.log('Distinct zip codes: ', results[4].length);
+    console.log('Distinct zip codes: ', results[4]);
     mongoose.connection.close();
   }).catch(error => console.error(error.stack));
