@@ -34,13 +34,13 @@ file.on('line', function(line) {
     // console.log(voter);
     // console.log(list.length);
     list.push(voter.save());
+    console.log('1');
   }
-
 });
 
 
 file.on('close', function() {
-  // console.log(list);
+  console.log('2');
   Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
