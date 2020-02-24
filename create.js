@@ -50,14 +50,14 @@ const saves = documents.map(d => d.save());
 Promise.all(saves)
   .then(() => console.log('All saved'))
   .catch(error => console.log(error.stack));
-*/
+
 
 // Ready database
 mongoose.connection.dropDatabase()
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
-
+*/
 
 
 
