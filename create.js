@@ -33,13 +33,14 @@ file.on('line', function(line) {
     // console.log(voter);
     // console.log(list.length);
     list.push(voter.save());
-    console.log(voter);
+    // console.log(voter);
   }
+  console.log('done with creation of voters');
 });
 
 
 file.on('close', function() {
-  console.log('2');
+  console.log('start promises');
   Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
