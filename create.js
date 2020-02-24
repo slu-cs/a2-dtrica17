@@ -36,6 +36,7 @@ file.on('line', function(line) {
     list.push(voter);
     // voter.save();
   }
+  console.log(list);
 });
 
 console.log(list);
