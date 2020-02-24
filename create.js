@@ -32,7 +32,6 @@ file.on('line', function(line) {
     // console.log(list);
     // console.log(list.length);
     list.push(voter.save());
-  }
 });
 
 
