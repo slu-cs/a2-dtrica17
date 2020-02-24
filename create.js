@@ -29,9 +29,7 @@ file.on('line', function(line) {
       zip: data[2],
       history: data[3]
   });
-    if (list.includes(voter) === false){
-      list.push(voter.save());
-    }
+    list.push(voter.save());
     console.log(list.length); // 65421 total voters
 });
 
@@ -40,7 +38,7 @@ file.on('line', function(line) {
 
 // promise all the saves on close
 file.on('close', function() {
-  console.log('start promises');
+  mongoose.connection.dropDatabase()
   Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
