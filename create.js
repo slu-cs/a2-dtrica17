@@ -7,7 +7,7 @@ const Voter = require('./schema');
 connect(); // To the database
 
 
-// Read majors.csv (which needs to be on your VM when you run this code).
+// Read voters.csv
 const fs = require('fs');
 const readline = require('readline');
 const file = readline.createInterface({
@@ -15,12 +15,11 @@ const file = readline.createInterface({
 });
 
 
-// Create an array of objects, so that each line of the file is represented by an object with four properties.
+// Parse and prepare csv file
 file.on('line', function(line) {
   const rows = line.split('\n');
-  //const data = rows.split(',');
-  console.log(rows);
   const data = rows.map(d => d.split(','));
+  // console.log(rows);
   const voters = data.map(row => {
     const new_voter = new Voter({
       first: row[0],
@@ -29,20 +28,20 @@ file.on('line', function(line) {
       history: row[3]
     });
   });
+  console.log(voters);
 });
 
 
-
-
 /*
+// Ready database
 mongoose.connection.dropDatabase()
   .then(() => rows.save())
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
-*/
 
-/*
+
+
 const rows = csv.split('\n');
 const data = rows.map(d => d.split(','));
 console.log(data);
