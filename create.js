@@ -14,35 +14,31 @@ const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
 
-const rows = csv.split('\n');
-const data = rows.map(d => d.split(','));
 
-//const output = data.map(row => {
+// Create an array of objects, so that each line of the file is represented by an object with four properties.
+const rows = [];
+file.on('line', function(line) {
+  const columns = line.split(',');
+  rows.push({
+    first: columns[0],
+    last: columns[1],
+    zip: Number(columns[2]),
+    history: columns[3]
+  });
+});
 
-//});
 
-console.log(data);
-
-/*
-
-// Ready database
 mongoose.connection.dropDatabase()
-  .then(() => harcourt.save())
-  .then(() => torrey.save())
-  .then(() => lee.save())
+  .then(() => rows.save())
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
 
 
-  // Create all of the voters
-  const harcourt = new Professor({
-    name: 'Ed Harcourt',
-    rank: 'Full',
-    started: 2003,
-    courses: [140, 220, 345, 362, 364]
-  });
-
+/*
+const rows = csv.split('\n');
+const data = rows.map(d => d.split(','));
+console.log(data);
 */
 
 // Mongoose site: https://mongoosejs.com/docs/api/connection.html#connection_Connection-dropDatabase
