@@ -20,10 +20,11 @@ file.on('line', function(line) {
   const rows = line.split('\n');
   //const data = rows.split(',');
   const data = rows.map(d => d.split(','));
+  console.log(data);
 });
 
 
-console.log(data);
+
 
 /*
 mongoose.connection.dropDatabase()
