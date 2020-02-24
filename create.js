@@ -19,8 +19,16 @@ const file = readline.createInterface({
 file.on('line', function(line) {
   const rows = line.split('\n');
   //const data = rows.split(',');
-  const data = rows.map(d => d.split(','));
   console.log(data);
+  const data = rows.map(d => d.split(','));
+  const voters = data.map(row => {
+    const new_voter = new Voter({
+      first: row[0],
+      last: row[1],
+      zip: row[2],
+      history: row[3]
+    });
+  });
 });
 
 
