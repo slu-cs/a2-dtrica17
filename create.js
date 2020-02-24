@@ -41,6 +41,10 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     new_array.push(new_voter);
+    mongoose.connection.dropDatabase()
+      .then(() => new_voter.save())
+      .then(() => mongoose.connection.close())
+      .catch(error => console.error(error.stack));
   }
   //console.log(new_array);
 });
@@ -49,7 +53,6 @@ file.on('line', function(line) {
 
 // Ready database
 mongoose.connection.dropDatabase()
-  .then(() => new_array.save())
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
