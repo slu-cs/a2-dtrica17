@@ -35,7 +35,7 @@ file.on('line', function(line) {
     list.push(voter.save());
     // console.log(voter);
   }
-  console.log('done with creation of voters');
+  // console.log('done with creation of voters');
 });
 
 
