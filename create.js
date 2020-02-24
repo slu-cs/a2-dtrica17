@@ -29,22 +29,23 @@ file.on('line', function(line) {
       zip: data[2],
       history: data[3]
   });
+    // console.log(voter);
+    // console.log(list.length);
     list.push(voter.save());
-    console.log(list.length); // 65421 total voters
+    console.log(list.length); // 65421
 });
 
 
-
-
-// promise all the saves on close
+// start promises
 file.on('close', function() {
+  console.log('start promises');
   Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
 });
 
 
-
+=
 
 // https://www.npmjs.com/package/csv-parser
 // Mongoose site: https://mongoosejs.com/docs/api/connection.html#connection_Connection-dropDatabase
