@@ -30,7 +30,7 @@ file.on('line', function(line) {
       history: data[0][3]
     }));
     // console.log(list);
-    console.log(list.length);
+    // console.log(list.length);
   }
 });
 
