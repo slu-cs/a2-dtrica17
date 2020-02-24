@@ -16,7 +16,7 @@ const file = readline.createInterface({
 
 
 // holder array
-var list = [];
+const list = [];
 
 // Parse and prepare csv file
 file.on('line', function(line) {
