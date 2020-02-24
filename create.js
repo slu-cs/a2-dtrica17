@@ -38,6 +38,14 @@ file.on('line', function(line) {
   }
 });
 
+console.log(list);
+
+/*
+const saves = documents.map(d => d.save());
+Promise.all(saves)
+  .then(() => console.log('All saved'))
+  .catch(error => console.log(error.stack));
+*/
 
 // Ready database
 mongoose.connection.dropDatabase()
