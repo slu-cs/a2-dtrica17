@@ -35,6 +35,9 @@ file.on('line', function(line) {
     // console.log(list.length);
     list.push(voter.save());
   }
+  Promise.all(list)
+    .then(() => console.log('All saved'))
+    .catch(error => console.log(error.stack));
 });
 
 console.log(list);
