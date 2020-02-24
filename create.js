@@ -23,13 +23,13 @@ file.on('line', function(line) {
   const rows = line.split('\n');
   const data = rows.map(d => d.split(','));
   for (const row in data){
-    const new_voter = new Voter({
+      list.push(new Voter({
       first: data[0][0],
       last: data[0][1],
       zip: data[0][2],
       history: data[0][3]
-    });
-    list.push(new_voter);
+    }));
+    // list.push(new_voter);
     //console.log(list.length);
   }
 });
