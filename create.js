@@ -15,6 +15,7 @@ const file = readline.createInterface({
 });
 
 
+const new_array = [];
 // Parse and prepare csv file
 file.on('line', function(line) {
   const rows = line.split('\n');
@@ -31,7 +32,6 @@ file.on('line', function(line) {
     });
   });
   */
-  const new_array = [];
   for (const row in data){
     // console.log(data[0][0]);
     const new_voter = new Voter({
