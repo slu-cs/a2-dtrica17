@@ -3,13 +3,13 @@
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
+const fs = require('fs');
+const readline = require('readline');
 
 connect(); // To the database
 
 
 // Read voters.csv
-const fs = require('fs');
-const readline = require('readline');
 const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
@@ -37,18 +37,24 @@ file.on('line', function(line) {
 
 
 // Ready database
-mongoose.connection.dropDatabase();
-
-file.on('close', function()) {
-  console.log('Database is ready.')
-  mongoose.connection.close();
-  process.exit(0);
-}
+mongoose.connection.dropDatabase()
+  .then(() => mongoose.connection.close())
+  .then(() => console.log('Database is ready.'))
+  .catch(error => console.error(error.stack));
 
 
 
 
 /*
+mongoose.connection.dropDatabase();
+
+file.on('close', function()) {
+  console.log('Database is ready.')
+  mongoose.connection.close();
+  process.exit(0)
+}
+
+
 const rows = csv.split('\n');
 const data = rows.map(d => d.split(','));
 console.log(data);
