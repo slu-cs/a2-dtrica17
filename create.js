@@ -38,14 +38,12 @@ file.on('line', function(line) {
 
 // start promises
 file.on('close', function() {
-  console.log('start promises');
   Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
 });
 
 
-=
 
 // https://www.npmjs.com/package/csv-parser
 // Mongoose site: https://mongoosejs.com/docs/api/connection.html#connection_Connection-dropDatabase
