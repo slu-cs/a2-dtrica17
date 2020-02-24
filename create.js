@@ -38,6 +38,7 @@ file.on('line', function(line) {
 
 
 for(const voter in new_array){
+  console.log(voter);
   mongoose.connection.dropDatabase()
     .then(() => voter.save())
     .then(() => mongoose.connection.close())
@@ -51,7 +52,7 @@ mongoose.connection.dropDatabase()
   .catch(error => console.error(error.stack));
 
 
-console.log(new_array);
+
 
 /*
 const rows = csv.split('\n');
