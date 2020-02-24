@@ -41,15 +41,18 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     new_array.push(new_voter);
-    mongoose.connection.dropDatabase()
-      .then(() => new_voter.save())
-      .then(() => mongoose.connection.close())
-      .catch(error => console.error(error.stack));
   }
   //console.log(new_array);
 });
 
 
+
+for(const voter in new_array){
+  mongoose.connection.dropDatabase()
+    .then(() => voter.save())
+    .then(() => mongoose.connection.close())
+    .catch(error => console.error(error.stack));
+}
 
 // Ready database
 mongoose.connection.dropDatabase()
