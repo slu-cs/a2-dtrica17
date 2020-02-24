@@ -34,7 +34,7 @@ file.on('line', function(line) {
 });
 
 
-
+// promise all the saves on close
 file.on('close', function() {
   console.log('start promises');
   Promise.all(list)
@@ -43,7 +43,6 @@ file.on('close', function() {
 });
 
 
-=
 
 // https://www.npmjs.com/package/csv-parser
 // Mongoose site: https://mongoosejs.com/docs/api/connection.html#connection_Connection-dropDatabase
