@@ -37,10 +37,13 @@ file.on('line', function(line) {
 
 
 // Ready database
-mongoose.connection.dropDatabase()
-  .then(() => mongoose.connection.close())
-  .then(() => console.log('Database is ready.'))
-  .catch(error => console.error(error.stack));
+mongoose.connection.dropDatabase();
+
+file.on('close', function()) {
+  console.log('Database is ready.')
+  mongoose.connection.close();
+  process.exit(0);
+}
 
 
 
