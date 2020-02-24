@@ -39,7 +39,7 @@ file.on('line', function(line) {
 // promise all the saves on close
 file.on('close', function() {
   mongoose.connection.dropDatabase()
-  Promise.all(list)
+    .then (() => Promise.all(list))
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
 });
