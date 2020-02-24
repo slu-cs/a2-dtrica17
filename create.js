@@ -16,30 +16,35 @@ const file = readline.createInterface({
 
 
 // Create an array of objects, so that each line of the file is represented by an object with four properties.
-const rows = [];
 file.on('line', function(line) {
-  const columns = line.split(',');
-  rows.push({
-    first: columns[0],
-    last: columns[1],
-    zip: Number(columns[2]),
-    history: columns[3]
-  });
+  const rows = line.split('\n');
+  //const data = rows.split(',');
+  const data = rows.map(d => d.split(','));
 });
 
 
+console.log(data);
+
+/*
 mongoose.connection.dropDatabase()
   .then(() => rows.save())
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
-
+*/
 
 /*
 const rows = csv.split('\n');
 const data = rows.map(d => d.split(','));
 console.log(data);
+
+const output = data.map(row => {
+   const obj = {};
+   headers.forEach((h, i) => obj[h] = row[i] });
+   return obj;
+});
 */
 
+// https://www.npmjs.com/package/csv-parser
 // Mongoose site: https://mongoosejs.com/docs/api/connection.html#connection_Connection-dropDatabase
 // https://stackoverflow.com/questions/48015270/steps-to-create-javascript-objects-from-text-data-out-of-a-csv-file-using-no-lib
