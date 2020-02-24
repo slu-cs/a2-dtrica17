@@ -14,6 +14,11 @@ const file = readline.createInterface({
   input: fs.createReadStream('voters.csv')
 });
 
+
+var List = require("collections/list");
+var list = new List([]);
+
+
 // holder array
 const voters = [];
 
@@ -31,15 +36,17 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     });
-    voters.push(new_voter);
+    list.push(new_voter);
+    console.log(list.length());
     //console.log(voters);
   }
 });
 
-console.log(voters);
+console.log(list.length());
+// console.log(list);
 
 
-for(const voter in voters){
+for(const voter in list){
   mongoose.connection.dropDatabase()
     .then(() => voter.save())
     .then(() => mongoose.connection.close())
