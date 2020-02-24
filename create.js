@@ -33,6 +33,7 @@ file.on('line', function(line) {
     });
     new_array.push(new_voter);
     console.log(new_voter);
+    console.log(new_array[0]);
   }
   //console.log(new_array);
 });
