@@ -39,10 +39,10 @@ file.on('line', function(line) {
 
 
 for(const voter in voters){
-  console.log('1');
   mongoose.connection.dropDatabase()
     .then(() => voter.save())
     .then(() => mongoose.connection.close())
+    .then(() => console.log('TEST'))
     .catch(error => console.error(error.stack));
 }
 
