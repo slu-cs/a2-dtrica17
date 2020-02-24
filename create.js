@@ -32,13 +32,13 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     new_array.push(new_voter);
+    console.log(new_voter);
   }
   //console.log(new_array);
 });
 
 
 for(const voter in new_array){
-  console.log(voter);
   mongoose.connection.dropDatabase()
     .then(() => voter.save())
     .then(() => mongoose.connection.close())
