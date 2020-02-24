@@ -23,11 +23,11 @@ file.on('line', function(line){
   arr.push(voterguy);
 })
 
+console.log(arr[0]);
 
 
 // Reset the data
 mongoose.connection.dropDatabase()
-  .then(() => arr.save())
   .then(() => mongoose.connection.close())
   .then(() => console.log('Database is ready.'))
   .catch(error => console.error(error.stack));
