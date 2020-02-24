@@ -22,10 +22,10 @@ file.on('line', function(line) {
   // console.log(rows);
   const voters = data.map(row => {
     const new_voter = new Voter({
-      first: row[0],
-      last: row[1],
-      zip: row[2],
-      history: row[3]
+      first: row[0][0],
+      last: row[0][1],
+      zip: row[0][2],
+      history: row[0][3]
     });
   });
   console.log(voters);
