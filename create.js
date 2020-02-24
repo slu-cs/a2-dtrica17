@@ -20,6 +20,9 @@ file.on('line', function(line) {
   const rows = line.split('\n');
   const data = rows.map(d => d.split(','));
   // console.log(rows);
+  for (const row in data){
+    console.log(row[0][0]);
+  }
   const voters = data.map(row => {
     const new_voter = new Voter({
       first: row[0][0],
@@ -28,7 +31,7 @@ file.on('line', function(line) {
       history: row[0][3]
     });
   });
-  console.log(voters);
+  //console.log(voters);
 });
 
 
