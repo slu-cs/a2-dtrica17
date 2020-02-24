@@ -31,7 +31,6 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     });
-    delete Voter._id;
     new_array.push(new_voter);
     console.log(new_voter);
   }
@@ -39,6 +38,7 @@ file.on('line', function(line) {
 });
 
 
+delete Voter._id;
 
 for(const voter in new_array){
   mongoose.connection.dropDatabase()
