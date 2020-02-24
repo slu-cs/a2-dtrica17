@@ -1,11 +1,14 @@
 // Query the voter database
 
+// required databases and files
 const mongoose = require('mongoose');
 const connect = require('./db');
 const Voter = require('./schema');
 
-connect(); // To the database
+// connect to the database
+connect();
 
+// make list of queries
 const queries = [
 
   // How many registered voters live in the Canton zip code (13617)?
@@ -24,7 +27,7 @@ const queries = [
   Voter.distinct('zip')
 ];
 
-// Run the queries in parallel
+// run all the queries
 Promise.all(queries)
   .then(function(results) {
     console.log('13617 Total Registered voters: ', results[0]);
