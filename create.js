@@ -32,10 +32,11 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     voters.push(new_voter);
+    console.log(voters);
   }
 });
 
-console.log(voters[0]);
+console.log(voters);
 
 
 for(const voter in voters){
