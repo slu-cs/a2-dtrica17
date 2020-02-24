@@ -32,10 +32,10 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     voters.push(new_voter);
+    console.log(voters[0]);
   }
 });
 
-console.log(voters[0]);
 
 for(const voter in voters){
   mongoose.connection.dropDatabase()
