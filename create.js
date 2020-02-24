@@ -36,7 +36,11 @@ file.on('line', function(line) {
     list.push(voter);
     // voter.save();
   }
-  console.log(list);
+  // console.log(list);
+  const saves = list.map(d => d.save());
+  Promise.all(saves)
+    .then(() => console.log('All saved'))
+    .catch(error => console.log(error.stack));
 });
 
 console.log(list);
