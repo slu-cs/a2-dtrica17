@@ -40,7 +40,7 @@ file.on('line', function(line) {
 
 
 file.on('close', function() {
-  console.log(list);
+  // console.log(list);
   Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
