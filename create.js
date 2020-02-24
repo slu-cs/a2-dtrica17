@@ -22,19 +22,18 @@ const list = [];
 
 // Parse and prepare csv file
 file.on('line', function(line) {
-  const rows = line.split('\n');
-  const data = rows.map(d => d.split(','));
+  const data = line.split(',');
   for (const row in data){
       const voter = new Voter({
-      first: data[0][0],
-      last: data[0][1],
-      zip: data[0][2],
-      history: data[0][3]
+      first: data[0],
+      last: data[1],
+      zip: data[2],
+      history: data[3]
     });
     // console.log(voter);
     // console.log(list.length);
     list.push(voter.save());
-    console.log('1');
+    console.log(voter);
   }
 });
 
