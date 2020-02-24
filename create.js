@@ -23,27 +23,18 @@ file.on('line', function(line) {
   const rows = line.split('\n');
   const data = rows.map(d => d.split(','));
   for (const row in data){
-      list.push(new Voter({
+      const voter = new Voter({
       first: data[0][0],
       last: data[0][1],
       zip: data[0][2],
       history: data[0][3]
-    }));
+    });
     // console.log(list);
     // console.log(list.length);
+    list.push(voter.save());
   }
 });
 
-console.log(list.length);
-
-
-for(const voter in list){
-  mongoose.connection.dropDatabase()
-    .then(() => voter.save())
-    .then(() => mongoose.connection.close())
-    .then(() => console.log('TEST'))
-    .catch(error => console.error(error.stack));
-}
 
 // Ready database
 mongoose.connection.dropDatabase()
