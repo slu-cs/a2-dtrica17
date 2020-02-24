@@ -32,7 +32,13 @@ file.on('line', function(line) {
   });
   */
   for (const row in data){
-    console.log(data[0][0]);
+    // console.log(data[0][0]);
+    const new_voter = new Voter({
+      first: data[0][0],
+      last: data[0][1],
+      zip: data[0][2],
+      history: data[0][3]
+    });
   }
   //console.log(voters);
 });
