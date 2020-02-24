@@ -32,7 +32,7 @@ file.on('line', function(line) {
       history: data[0][3]
     });
     voters.push(new_voter);
-    console.log(voters);
+    //console.log(voters);
   }
 });
 
