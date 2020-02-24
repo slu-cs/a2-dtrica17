@@ -11,7 +11,7 @@ connect(); // To the database
 const fs = require('fs');
 const readline = require('readline');
 const file = readline.createInterface({
-  input: fs.createReadStream('majors.csv')
+  input: fs.createReadStream('voters.csv')
 });
 
 const rows = csv.split('\n');
