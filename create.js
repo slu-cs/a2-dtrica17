@@ -15,7 +15,7 @@ const file = readline.createInterface({
 });
 
 const rows = csv.split('\n');
-const data = rows.map(d => d.split(',');
+const data = rows.map(d => d.split(','));
 
 //const output = data.map(row => {
 
