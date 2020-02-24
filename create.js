@@ -31,7 +31,7 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     });
-    // console.log(list);
+    console.log(voter);
     // console.log(list.length);
     list.push(voter);
     voter.save();
