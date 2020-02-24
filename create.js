@@ -15,12 +15,8 @@ const file = readline.createInterface({
 });
 
 
-//var List = require("collections/list");
-var list = [];
-
-
 // holder array
-const voters = [];
+var list = [];
 
 // Parse and prepare csv file
 file.on('line', function(line) {
@@ -43,7 +39,6 @@ file.on('line', function(line) {
 });
 
 console.log(list.length);
-// console.log(list);
 
 
 for(const voter in list){
