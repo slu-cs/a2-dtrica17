@@ -29,8 +29,7 @@ file.on('line', function(line) {
       zip: data[0][2],
       history: data[0][3]
     }));
-    // list.push(new_voter);
-    console.log(list);
+    // console.log(list);
     console.log(list.length);
   }
 });
