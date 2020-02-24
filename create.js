@@ -29,21 +29,19 @@ file.on('line', function(line) {
       zip: data[2],
       history: data[3]
   });
-    list.push(voter.save());
+    if (list.includes(voter) === false){
+      list.push(voter.save());
+    }
     console.log(list.length); // 65421 total voters
 });
 
-const unique = [];
-$.each(list, function(i, el){
-    if($.inArray(el, unique) === -1) unique.push(el);
-});
-console.log(list.length)
+
 
 
 // promise all the saves on close
 file.on('close', function() {
   console.log('start promises');
-  Promise.all(unique)
+  Promise.all(list)
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
 });
