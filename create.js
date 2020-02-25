@@ -32,7 +32,7 @@ file.on('line', function(line) {
     // console.log(voter);
     // console.log(list.length);
     list.push(voter.save());
-    console.log(list.length); // 65421
+    console.log(list.length); // Note all this printing will slow things down
 });
 
 
