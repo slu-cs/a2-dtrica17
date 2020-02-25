@@ -31,14 +31,15 @@ file.on('line', function(line) {
   });
     // console.log(voter);
     // console.log(list.length);
-    list.push(voter.save());
+    list.push(voter);
     console.log(list.length); // Note all this printing will slow things down
 });
 
 
 // start promises
 file.on('close', function() {
-  Promise.all(list)
+  mongoose.connection.dropDatabase()
+    .then(() => Promise.all(list.map(voter => voter.save())))
     .then(() => console.log('All saved'))
     .catch(error => console.log(error.stack));
 });
